@@ -5,14 +5,16 @@ import { FaApple } from 'react-icons/fa';
 
 export const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <>
-      <section className="flex justify-between items-center h-full z-10 relative">
+      <section className="flex justify-between items-center lg:flex-col h-full z-10 relative lg:py-4">
         <Link href="/">
           <a title="Home">
             <FaApple size="32"></FaApple>
           </a>
         </Link>
+
         <button
           title="Menu"
           type="button"
@@ -22,12 +24,16 @@ export const Header = () => {
         >
           <CgMenu size="32"></CgMenu>
         </button>
+
+        <div className="hidden lg:block">
+          <span className="block w-4 h-4 bg-white rounded-full"></span>
+        </div>
       </section>
 
       <nav
-        className={`absolute top-0 left-0 ${
-          menuOpen ? 'top-' : '-top-full'
-        } h-screen w-screen text-white bg-neutral-900`}
+        className={`absolute left-0 -top-full transition-transform transform-gpu ${
+          menuOpen ? 'translate-y-full' : ''
+        } h-screen w-screen lg:w-screen-1/3 text-white bg-neutral-900`}
       >
         <ul>
           <li>
