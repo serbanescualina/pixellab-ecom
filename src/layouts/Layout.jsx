@@ -28,6 +28,8 @@ export const Layout = ({ children }) => {
     color: ${white};
     grid-area: header;
     padding: 0 16px;
+    z-index: 1;
+    font-family: Work Sans Medium;
 
     @media (min-width: 1024px) {
       position: fixed;

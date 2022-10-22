@@ -27,6 +27,7 @@ export const CartLineItem = ({ product }) => {
               width="100"
               height="100"
               objectFit="contain"
+              alt=""
             ></Image>
           </a>
         </Link>

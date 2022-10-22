@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-const buttonClasses = `w-24 h-24 border-l border-zinc-400 flex justify-center items-center`;
+const buttonClasses = `w-20 h-24 border-l border-zinc-400 flex justify-center items-center`;
 
 export const GridControls = ({ setPerRow = () => {} }) => {
   const [itemsPerRow, setItemsPerRow] = useState('4/row');

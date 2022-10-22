@@ -3,6 +3,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'Work Sans Medium'; /*Can be any text*/
+  src: local('WorkSans-Medium'),
+    url('./../fonts/WorkSans-Medium.ttf') format('truetype');
+}
+
 body {
   font-family: Roboto, serif;
 }
