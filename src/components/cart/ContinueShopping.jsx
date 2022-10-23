@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-export const CartControl = () => {
+export const ContinueShopping = () => {
   return (
     <>
       <Link href="/">
