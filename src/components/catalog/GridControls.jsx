@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react';
+import { BsFillGridFill, BsFillGrid3X3GapFill } from 'react-icons/bs';
+import { BiRectangle } from 'react-icons/bi';
 
 const buttonClasses = `w-20 h-24 border-l border-zinc-400 flex justify-center items-center`;
 
@@ -25,10 +27,9 @@ export const GridControls = ({ setPerRow = () => {} }) => {
             setItemsPerRow('1/row');
           }}
         >
-          1
+          <BiRectangle size={25} />
         </button>
       </li>
-
       <li>
         <button
           title="Two per row"
@@ -39,10 +40,9 @@ export const GridControls = ({ setPerRow = () => {} }) => {
             setItemsPerRow('2/row');
           }}
         >
-          2
+          <BsFillGridFill size={25} />
         </button>
       </li>
-
       <li>
         <button
           title="Four per row"
@@ -53,7 +53,7 @@ export const GridControls = ({ setPerRow = () => {} }) => {
             setItemsPerRow('4/row');
           }}
         >
-          4
+          <BsFillGrid3X3GapFill size={25} />
         </button>
       </li>
     </ul>

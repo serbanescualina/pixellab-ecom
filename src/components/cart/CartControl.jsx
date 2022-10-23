@@ -1,10 +1,10 @@
 import Link from 'next/link';
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import { AppContext } from '../../pages/_app';
+import { RiShoppingCartLine } from 'react-icons/ri';
 
 export const CartControl = () => {
   const { cart } = useContext(AppContext);
-
   if (cart === null) {
     return <></>;
   }
@@ -27,7 +27,7 @@ export const CartControl = () => {
             className="w-20 h-24 flex justify-center items-center"
             title="Cart"
           >
-            {cartQty}
+            <RiShoppingCartLine size={25}></RiShoppingCartLine>
           </a>
         </Link>
       </li>

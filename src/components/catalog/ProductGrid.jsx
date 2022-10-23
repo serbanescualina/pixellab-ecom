@@ -3,7 +3,11 @@ import { ProductTile } from './ProductTile';
 
 export const ProductGrid = ({ products = [], perRow = 4 }) => {
   if (products.length <= 0) {
-    return <>There are no products</>;
+    return (
+      <div className="flex justify-center">
+        <p>There is no products found</p>
+      </div>
+    );
   }
 
   const gridCss = css`
