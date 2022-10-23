@@ -5,6 +5,7 @@ import {
   CartTotals,
   CartVoucher,
 } from '../components/cart';
+import { ContinueShopping } from '../components/cart/ContinueShopping';
 import { useCart } from '../hooks';
 import { Layout } from '../layouts';
 
@@ -24,7 +25,9 @@ const Cart = () => {
       <Layout>
         <main className="container px-4 lg:px-0 mx-auto">
           <header className="flex justify-between text-zinc-400">
-            <div></div>
+            <div>
+              <ContinueShopping></ContinueShopping>
+            </div>
 
             <CartControl cart={cart}></CartControl>
           </header>

@@ -20,8 +20,8 @@ export const CartControl = () => {
   }, 0);
 
   return (
-    <ul>
-      <li className="border border-zinc-400">
+    <ul className="border border-zinc-400">
+      <li>
         <Link href="/cart">
           <a
             className="w-20 h-24 flex justify-center items-center"
