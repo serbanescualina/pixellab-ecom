@@ -4,8 +4,8 @@ import {
   CartItems,
   CartTotals,
   CartVoucher,
+  ContinueShopping,
 } from '../components/cart';
-import { ContinueShopping } from '../components/cart/ContinueShopping';
 import { useCart } from '../hooks';
 import { Layout } from '../layouts';
 
