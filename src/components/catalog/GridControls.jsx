@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react';
 import { BsFillGridFill, BsFillGrid3X3GapFill } from 'react-icons/bs';
 import { BiRectangle } from 'react-icons/bi';
+import { useIsMobile, useLocalStorage } from '../../hooks';
 
 const buttonClasses = `w-20 h-24 border-l border-zinc-400 flex justify-center items-center`;
 
 export const GridControls = ({ setPerRow = () => {} }) => {
-  const [itemsPerRow, setItemsPerRow] = useState('4/row');
+  const [itemsPerRow, setItemsPerRow] = useLocalStorage('perRow', '4/row');
+  const isMobile = useIsMobile();
 
   // de fiecare data cand itemsPerRow se schimba
   // ruleaza acest callback
@@ -14,6 +16,10 @@ export const GridControls = ({ setPerRow = () => {} }) => {
 
     setPerRow(perRow);
   }, [itemsPerRow, setPerRow]);
+
+  if (isMobile === true) {
+    return <></>;
+  }
 
   return (
     <ul className="flex border border-l-0 border-r-0 border-zinc-400">
