@@ -4,3 +4,4 @@ export * from './Pagination';
 export * from './ProductTile';
 export * from './infinitePagination';
 export * from './AddToCart';
+export * from './RelatedProducts';

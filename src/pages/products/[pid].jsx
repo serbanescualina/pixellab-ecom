@@ -8,7 +8,7 @@ import { BiLoaderCircle } from 'react-icons/bi';
 import { useProduct } from '../../hooks';
 import ProductReviews from './ProductReviews';
 import Image from 'next/image';
-import { AddToCart } from '../../components/catalog';
+import { AddToCart, RelatedProducts } from '../../components/catalog';
 
 const ProductPage = () => {
   const router = useRouter();
@@ -27,7 +27,7 @@ const ProductPage = () => {
     return <span>Product not found</span>;
   }
 
-  const { id, title, description, price, image, rating } = product;
+  const { id, title, description, price, image, rating, category } = product;
   const formattedPrice = new Intl.NumberFormat('en-US', {
     currency: 'USD',
     style: 'currency',
@@ -76,7 +76,12 @@ const ProductPage = () => {
             </header>
           </section>
           <section className="border-t"></section>
-          <section className="container px-4 lg:px-0 mx-auto">jos</section>
+          <section className="container px-4 lg:px-0 mx-auto">
+            <RelatedProducts
+              productCategory={category}
+              productId={id}
+            ></RelatedProducts>
+          </section>
         </main>
       </Layout>
     </>
