@@ -31,7 +31,6 @@ export const RelatedProducts = ({ productCategory, productId }) => {
           }).format(price);
           0;
 
-          console.log(productCategory);
           if (category === productCategory && id !== productId) {
             return (
               <div
