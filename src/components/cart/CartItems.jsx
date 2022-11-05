@@ -20,23 +20,40 @@ export const CartItems = () => {
     return <></>;
   }
 
-  const gridTable = css`
+  const gridFormat = css`
     display: grid;
-    grid-template-areas: '';
+    grid-template-areas: 'product price quantity total';
+    grid-template-columns: 47% 13% 18% 17% 5%;
+  `;
+
+  const productCss = css`
+    grid-area: product;
+  `;
+
+  const priceCss = css`
+    grid-area: price;
+  `;
+
+  const quantityCss = css`
+    grid-area: quantity;
+  `;
+
+  const totalCss = css`
+    grid-area: total;
   `;
 
   return (
     <table className="flex justify-center items-center flex-col w-full">
       <thead className="w-full">
-        <tr className="flex justify-around items-center border-b w-full mb-5">
-          <th>Product</th>
-          <th>Price</th>
-          <th>Quantity</th>
-          <th>Total</th>
+        <tr className={`${gridFormat} items-center border-b w-full mb-5`}>
+          <th className={`${productCss}`}>Product</th>
+          <th className={`${priceCss}`}>Price</th>
+          <th className={`${quantityCss}`}>Quantity</th>
+          <th className={`${totalCss}`}>Total</th>
         </tr>
       </thead>
 
-      <tbody>
+      <tbody className="w-full flex flex-col gap-5 items-center justify-center">
         {products.map((product) => {
           return (
             <CartLineItem

@@ -1,5 +1,5 @@
 import { css } from '@emotion/css';
-import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
+import { AiFillStar } from 'react-icons/ai';
 
 function ProductReviews({ rate, count }) {
   const fullStar = Math.floor(rate);
