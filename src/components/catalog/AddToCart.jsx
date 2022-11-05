@@ -32,7 +32,7 @@ export const AddToCart = ({ product }) => {
 
   return (
     <button
-      className="bg-black text-white uppercase font-medium text-sm py-3 px-6 hover:bg-amber-800 transition-colors"
+      className="bg-black text-white uppercase font-medium text-sm my-1 py-3 px-6 hover:bg-amber-800 transition-colors"
       title={`Add ${title} to cart`}
       type="button"
       onClick={onClick}
