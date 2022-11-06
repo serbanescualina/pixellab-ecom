@@ -22,8 +22,8 @@ export const CartItems = () => {
 
   const gridFormat = css`
     display: grid;
-    grid-template-areas: 'product price quantity total';
-    grid-template-columns: 47% 13% 18% 17% 5%;
+    grid-template-areas: 'space product price quantity total';
+    grid-template-columns: 5% 47% 13% 18% 17%;
   `;
 
   const productCss = css`

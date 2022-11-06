@@ -31,7 +31,7 @@ export const Pagination = ({ products, setPaginatedProducts }) => {
   const pagesCount = Math.ceil(total / perPage);
 
   return (
-    <ul className="flex gap-2">
+    <ul className="flex gap-2 justify-center items-center">
       {Array(pagesCount)
         .fill('_')
         .map((_, index) => {
@@ -40,7 +40,9 @@ export const Pagination = ({ products, setPaginatedProducts }) => {
           return (
             <li
               key={index}
-              className={`${i === page ? 'font-bold' : ''}`}
+              className={`border py-2 px-3 mb-2 cursor-pointer${
+                i === page ? 'font-bold bg-black text-white ' : ''
+              }`}
               onClick={() => {
                 if (i === page) {
                   return;

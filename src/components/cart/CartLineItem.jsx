@@ -5,34 +5,29 @@ import { useContext } from 'react';
 import { useProduct } from '../../hooks';
 import ProductReviews from '../../pages/products/ProductReviews';
 import { AppContext } from '../../pages/_app';
-import { MdRemoveCircle } from 'react-icons/md';
+import { TiDeleteOutline } from 'react-icons/ti';
 
 export const CartLineItem = ({ product }) => {
   const { quantity, productId } = product;
   const { product: cartItem } = useProduct(productId);
   const isLoaded = cartItem !== null;
   const { alterProduct } = useContext(AppContext);
+  console.log(cartItem);
 
   if (!isLoaded) {
     return <></>;
   }
 
-  const removeItem = (cart) => {
-    cart.products = cart.products.filter((product) => {
-      return product.productId !== productId;
-    });
-    setCart(cart.products);
-  };
-
   const { image, price, id, title, rating } = cartItem;
+
   const formattedPrice = new Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: 'USD',
   }).format(price * quantity);
   const gridFormat = css`
     display: grid;
-    grid-template-areas: 'product price quantity total';
-    grid-template-columns: 47% 13% 18% 17% 5%;
+    grid-template-areas: 'space product price quantity total';
+    grid-template-columns: 5% 47% 13% 18% 17%;
   `;
 
   const productCss = css`
@@ -50,9 +45,24 @@ export const CartLineItem = ({ product }) => {
   const totalCss = css`
     grid-area: total;
   `;
-
+  const removeItem = (cart) => {
+    cart.products = cart.products.filter(({ id }) => {
+      alterProduct(productId, 0);
+      return product.productId !== productId;
+    });
+    setCart(...cart.products);
+  };
   return (
     <tr className={`${gridFormat} items-center w-full border p-2`}>
+      <td>
+        <button
+          type="button"
+          title="Remove item"
+          onClick={() => alterProduct(id, -quantity)}
+        >
+          <TiDeleteOutline size="24"></TiDeleteOutline>
+        </button>
+      </td>
       <td className={`${productCss} flex gap-5 items-center `}>
         <Link href={`/products/${id}`}>
           <a title={title}>
@@ -107,16 +117,6 @@ export const CartLineItem = ({ product }) => {
         </div>
       </td>
       <td className={`${totalCss} text-center`}>{formattedPrice}</td>
-      <td>
-        {' '}
-        <button
-          type="button"
-          title="Remove item"
-          onClick={() => removeItem(cart)}
-        >
-          <MdRemoveCircle size="24"></MdRemoveCircle>
-        </button>
-      </td>
     </tr>
   );
 };
